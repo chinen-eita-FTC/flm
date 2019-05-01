@@ -3,6 +3,28 @@
 ## 概要
 
 ## 構築手順
+ここでは本アプリケーションの構築手順を記載する。
+
+### 前提条件
+GitHubアカウントに公開鍵を登録し、SSH接続可能な状態であること  
+1. SSH接続テストを実行  
+```
+$ ssh -T git@github.com
+```
+2. 上記コマンド実行後、以下のメッセージが出力されることを確認  
+```
+Hi <GitHubアカウント名>! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+### アプリケーションのソースを取得  
+1. 仮想環境との共有ディレクトリに移動
+```
+$ cd /vagrant
+```
+2. ソースを取得
+```
+$ git clone git@github.com:chinen-eita-FTC/flm.git
+```
 
 ## ブランチ戦略
 ここでは本開発のブランチ戦略を記載する。
