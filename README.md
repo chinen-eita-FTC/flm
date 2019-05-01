@@ -21,7 +21,7 @@
 ここでは本開発で実装対象となるアーキテクチャの構成と概要を記載する。
 各レイヤの責務については各レイヤの `README.md` に説明を譲ることとする。  
 
-【アーキテクチャ構成図】  
+### アーキテクチャ構成図  
 app/  
   ├── Exceptions/ ⇒ 各レイヤ独自の例外クラスを格納  
   ├── Http/  
@@ -38,3 +38,9 @@ resources/ ⇒ アセッツコンパイル前のリソースファイルを格�
 routes/  
   └── web.php ⇒ アプリケーションのルーティングを定義  
 tests/ ⇒ テストコードを格納  
+
+### 各レイヤの責務へのリンク
+- [コントローラレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Http/Controllers) 
+- [サービスレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Services)
+- [モデルレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Models)
+- [サービスレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Services)
