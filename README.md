@@ -26,6 +26,31 @@ $ cd /vagrant
 $ git clone git@github.com:chinen-eita-FTC/flm.git
 ```
 
+### アプリケーションの初期設定
+1. `.env` ファイルを作成  
+```
+$ cp /vagrant/flm/.env.example /vagrant/flm/.env
+```
+2. `.env` ファイルを修正  
+別途配布された設定項目を参考に修正  
+3. 依存パッケージ・ライブラリを取得  
+```
+$ composer install
+```
+4. 依存パッケージ・ライブラリの更新
+```
+$ composer update
+```
+5. アプリケーションキーの発行
+```
+$ php artisan key:generate
+```
+6. パーミッションの変更
+```
+$ sudo chmod -R 777 /vagrant/src/flm/storage
+$ sudo chmod -R 777 /vagrant/src/flm/bootstrap
+```
+
 ## ブランチ戦略
 ここでは本開発のブランチ戦略を記載する。
 
