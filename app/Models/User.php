@@ -1,24 +1,28 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
+/**
+ * ユーザーモデル
+ *
+ * @package App\Models
+ */
 class User extends Model
 {
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * 意図しないデータの更新を防ぎたいカラム群
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+    protected $guarded = [
+        'id',
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * モデルを配列/JSON変換するときに隠蔽されるカラム軍
      *
      * @var array
      */
