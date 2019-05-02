@@ -3,6 +3,9 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 /**
  * ユーザーモデル
  *
@@ -11,6 +14,13 @@ namespace App\Models;
 class User extends Model
 {
     use Notifiable;
+
+    /**
+     * テーブルの物理名
+     *
+     * @var string
+     */
+    protected $table = 'users';
 
     /**
      * 意図しないデータの更新を防ぎたいカラム群
@@ -22,7 +32,7 @@ class User extends Model
     ];
 
     /**
-     * モデルを配列/JSON変換するときに隠蔽されるカラム軍
+     * モデルを配列/JSON変換するときに隠蔽されるカラム群
      *
      * @var array
      */
