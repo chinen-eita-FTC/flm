@@ -1,6 +1,15 @@
 # FLM
 
 ## 概要
+本アプリケーションは書籍管理システムの開発を通じて以下の項目を達成することを目的とする。  
+- MUST
+  - 実装時に不明確な仕様・要件については設計者に確認できること
+  - 上長の指示がない状態でもプルリクエストを作成してコードレビューを受けられる状態にできること
+  - WBS上のスケジュールを意識し期限に間に合わない場合は上長にスケジュールの調整を依頼できること
+  - 本アプリケーションの仕組みや概要を第三者に説明できること
+- BETTER
+  - ORマッパーを利用してRDBのCRUD操作関連の製造ができること
+  - 単体レベルのテストコードを製造できること
 
 ## 構築手順
 ここでは本アプリケーションの構築手順を記載する。
@@ -19,7 +28,7 @@ Hi <GitHubアカウント名>! You've successfully authenticated, but GitHub doe
 ### アプリケーションのソースを取得  
 1. 仮想環境との共有ディレクトリに移動
 ```
-$ cd /vagrant
+$ cd /vagrant/src
 ```
 2. ソースを取得
 ```
@@ -29,7 +38,7 @@ $ git clone git@github.com:chinen-eita-FTC/flm.git
 ### アプリケーションの初期設定
 1. `.env` ファイルを作成  
 ```
-$ cp /vagrant/flm/.env.example /vagrant/flm/.env
+$ cp /vagrant/src/flm/.env.example /vagrant/src/flm/.env
 ```
 2. `.env` ファイルを修正  
 別途配布された設定項目を参考に修正  
@@ -86,7 +95,7 @@ routes/
   └── web.php ⇒ アプリケーションのルーティングを定義  
 tests/ ⇒ テストコードを格納  
 
-### 各レイヤの責務へのリンク
+### 各レイヤのREADMEへのリンク
 - [コントローラレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Http/Controllers) 
 - [サービスレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Services)
 - [モデルレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Models)
