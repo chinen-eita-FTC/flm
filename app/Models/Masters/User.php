@@ -7,13 +7,17 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Model;
 use Illuminate\Support\Collection;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+
+
 
 /**
  * ユーザーモデル
  *
  * @package App\Models\Masters
  */
-class User extends Model
+class User extends Authenticatable
 {
     use Notifiable;
 

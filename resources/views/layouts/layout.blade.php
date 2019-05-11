@@ -16,23 +16,26 @@
     <div class="headerWrap">
       <div class="headerUpper">
         <div class="headerUpper__left">
-          <h1>書籍管理システム</h1>
+          <h1>FLM</h1>
         </div>
         <div class="headerUpper__right">
+          @if(Auth::check())
           <p class="headerUpper__right_loginMessage">
-            <span class="font_bold"><!-- ここは変数 -->こんにちは、○○</span>様
+            <span class="font_bold">こんにちは、{{Auth::user()->first_name}} </span>様
           </p>
-          <a href="#" class="button__login">ログイン</a>
+          <a href="/logout" class="button__login">ログアウト</a>
+          @else
+          <a href="/login" class="button__login">ログイン</a>
+          @endif
         </div>
       </div>
       <div class="headerlower">
         <nav class="globalMenu">
           <ul>
             <li><a href="#">トップ</a></li>
-            <li><a href="#">書籍管理</a></li>
-            <li><a href="#">購入申請</a></li>
-            <li><a href="#">履歴</a></li>
-            <li><a href="#">設定</a></li>
+            <li><a href="#">蔵書管理</a></li>
+            <li><a href="#">申請管理</a></li>
+            <li><a href="#">ユーザー情報管理</a></li>
           </ul>
         </nav>
       </div>

@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Logins;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
 
-  use AuthenticatesUsers;
+  use AuthenticatesUsers { login as authLogin; }
 
   /**
    * Where to redirect users after login.
    *
    * @var string
    */
-  protected $redirectTo = '/';
+  protected $redirectTo = '/top';
 
   /**
    * Create a new controller instance.
@@ -44,7 +45,17 @@ class LoginController extends Controller
    * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
    */
   public function login(Request $request)
-  { 
-    return $this->login($request);
+  {
+    return $this->authLogin($request);
+  }
+
+  /**
+  *  デフォルトで使用されている認証対象のカラムを変更
+  *
+  * @return string
+  */
+  public function username()
+  {
+      return 'email_address';
   }
 }
