@@ -30,6 +30,7 @@ class CreateMasterUsersTable extends Migration
     {
         Schema::create(self::TABLE_PHYSICAL_NAME, function (Blueprint $table) {
             $table->increments('id')->comment('ユーザーマスタID');
+            $table->bigInteger('m_user_role_id')->unsigned()->comment('ユーザー権限マスタID');
             $table->string('last_name')->comment('ユーザー姓');
             $table->string('last_name_kana')->comment('ユーザー姓(セイ)');
             $table->string('first_name')->comment('ユーザー名');
