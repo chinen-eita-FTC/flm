@@ -96,7 +96,7 @@ routes/
 tests/ ⇒ テストコードを格納  
 
 ### 各レイヤのREADMEへのリンク
-- [コントローラレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Http/Controllers) 
-- [サービスレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Services)
-- [モデルレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Models)
-- [サービスレイヤ](https://github.com/chinen-eita-FTC/flm/tree/master/app/Services)
+- [コントローラレイヤ](https://github.com/chinen-eita-FTC/flm/tree/develop/app/Http/Controllers) 
+- [サービスレイヤ](https://github.com/chinen-eita-FTC/flm/tree/develop/app/Services)
+- [モデルレイヤ](https://github.com/chinen-eita-FTC/flm/tree/develop/app/Models)
+- [サービスレイヤ](https://github.com/chinen-eita-FTC/flm/tree/develop/app/Services)
