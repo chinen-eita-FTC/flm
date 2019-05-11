@@ -22,7 +22,7 @@
           <p class="headerUpper__right_loginMessage">
             <span class="font_bold"><!-- ここは変数 -->こんにちは、○○</span>様
           </p>
-          <a href="#" class="button__logout">ログアウト</a>
+          <a href="#" class="button__login">ログイン</a>
         </div>
       </div>
       <div class="headerlower">

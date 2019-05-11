@@ -182,16 +182,6 @@ nav.globalMenu a:hover {
   transition: .2s;
 }
 
-/*main*/
-
-main .main__oneColumn h2 {
-  background: #f3f7fb;
-  padding: 15px 20px;
-  margin-bottom: 20px;
-  border-left: 10px solid #0764a7;
-  border-radius: 5px;
-}
-
 /*footer*/
 
 footer {
