@@ -1,15 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Models;
+namespace App\Models\Masters;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Model;
+use Illuminate\Support\Collection;
 
 /**
  * ユーザーモデル
  *
- * @package App\Models
+ * @package App\Models\Masters
  */
 class User extends Model
 {
@@ -20,7 +22,7 @@ class User extends Model
      *
      * @var string
      */
-    protected $table = 'users';
+    protected $table = 'm_users';
 
     /**
      * 意図しないデータの更新を防ぎたいカラム群
@@ -39,4 +41,19 @@ class User extends Model
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 主キーを指定してユーザー情報を検索
+     *
+     * @param int $id 主キー
+     * @return Collection 1件のユーザ情報をラップしたコレクションオブジェクト
+     */
+    public function getUserById(int $id) : Collection
+    {
+        $result = $this->find($id);
+        if(is_null($result)){
+            return collect([]);
+        }
+        return collect($result->toArray());
+    }
 }

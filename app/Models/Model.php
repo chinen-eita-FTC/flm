@@ -17,10 +17,11 @@ class Model extends BaseModel
     /**
      * 初期処理
      *
+     * @param array $attributes ミューテター
      * @return void
      */
-    public function __construct()
+    public function __construct(array $attributes = [])
     {
-        parent::__construct();
+        parent::__construct($attributes);
     }
 }
