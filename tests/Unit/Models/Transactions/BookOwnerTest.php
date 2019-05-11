@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Unit\Models\Masters;
+namespace Tests\Unit\Models\Transactions;
 
 use Tests\Unit\Models\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\Masters\User;
+use App\Models\Transactions\BookOwner;
 
 /**
- * ユーザーモデルのテスト
+ * 書籍所有者モデルのテスト
  *
- * @package Tests\Unit\Models\Masters
+ * @package Tests\Unit\Models\Transactions
  */
-class UserTest extends TestCase
+class BookOwnerTest extends TestCase
 {
 
     /**
-     * @var User テスト対象クラス
+     * @var BookOwner テスト対象クラス
      */
     private $testee;
 
@@ -27,44 +27,46 @@ class UserTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->testee = app()->make(User::class);
+        $this->testee = app()->make(BookOwner::class);
     }
 
     /**
-     * 対象メソッド：getUserById
+     * 対象メソッド：getBookOwnerById
      * @test
      */
     public function 存在する主キーを指定して1件のユーザ情報を取得できること()
     {
         // テストデータを準備
-        $seederName = 'UserSeeder';
-        User::truncate();
+        $seederName = 'BookOwnerSeeder';
+        BookOwner::truncate();
         $this->seed($seederName);
 
         // テスト対象メソッドを実行
         $id = 1;
-        $actuarl = $this->testee->getUserById($id);
+        $actuarl = $this->testee->getBookOwnerById($id);
 
         // 検証
         $this->assertSame(1, $actuarl->get('id'));
+        $this->assertSame(1, $actuarl->get('m_book_id'));
+        $this->assertSame(1, $actuarl->get('m_user_id'));
     }
 
     /**
-     * 対象メソッド：getUserById
+     * 対象メソッド：getBookOwnerById
      * @test
      */
     public function 存在しない主キーを指定してユーザ情報を取得できないこと()
     {
         // テストデータを準備
-        $seederName = 'UserSeeder';
-        User::truncate();
+        $seederName = 'BookOwnerSeeder';
+        BookOwner::truncate();
         $this->seed($seederName);
 
         // テスト対象メソッドを実行
         $id = 11;
-        $actuarl = $this->testee->getUserById($id);
+        $actuarl = $this->testee->getBookOwnerById($id);
 
         // 検証
-        $this->assertEmpty(0, $actuarl);
+        $this->assertEmpty($actuarl);
     }
 }
