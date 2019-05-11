@@ -7,6 +7,7 @@ use App\Models\Masters\User;
 $factory->define(User::class, function (Faker $faker) {
     static $number = 1;
     $result = [
+        'm_user_role_id' => $faker->numberBetween(1, 2),
         'last_name' => 'last_name' . $number,
         'last_name_kana' => 'last_name_kana' . $number,
         'first_name' => 'first_name' . $number,
