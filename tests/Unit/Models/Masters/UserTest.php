@@ -17,9 +17,7 @@ class UserTest extends TestCase
 {
 
     /**
-     * テスト対象のクラス
-     *
-     * @var User
+     * @var User テスト対象クラス
      */
     private $testee;
 
@@ -33,11 +31,10 @@ class UserTest extends TestCase
     }
 
     /**
-     * A basic test example.
-     *
+     * 対象メソッド：getUserById
      * @test
      */
-    public function testExample()
+    public function 主キーを指定して1件のユーザ情報を取得できること()
     {
         // テストデータを準備
         $seederName = 'UserSeeder';
@@ -50,5 +47,24 @@ class UserTest extends TestCase
 
         // 検証
         $this->assertSame(1, $actuarl->get('id'));
+    }
+
+    /**
+     * 対象メソッド：getUserById
+     * @test
+     */
+    public function 存在しない主キーを指定してユーザ情報を取得できないこと()
+    {
+        // テストデータを準備
+        $seederName = 'UserSeeder';
+        User::truncate();
+        $this->seed($seederName);
+
+        // テスト対象メソッドを実行
+        $id = 11;
+        $actuarl = $this->testee->getUserById($id);
+
+        // 検証
+        $this->assertEmpty(0, $actuarl);
     }
 }
