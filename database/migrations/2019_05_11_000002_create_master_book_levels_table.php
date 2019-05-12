@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use App\Libraries\Migration;
 
 /**
- * 蔵書マスタテーブルのマイグレーション
+ * 蔵書レベルマスタテーブルのマイグレーション
  */
 class CreateMasterBookLevelsTable extends Migration
 {

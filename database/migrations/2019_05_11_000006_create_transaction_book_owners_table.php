@@ -31,7 +31,7 @@ class CreateTransactionBookOwnersTable extends Migration
         Schema::create(self::TABLE_PHYSICAL_NAME, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('蔵書所有者トランザクションID');
             $table->bigInteger('m_book_id')->unsigned()->comment('蔵書マスタID');
-            $table->bigInteger('m_user_id')->unsigned()->nullable()->comment('ユーザーマスタID');
+            $table->integer('m_user_id')->unsigned()->nullable()->comment('ユーザーマスタID');
             $table->timestamp('created_at')->comment('登録日時');
             $table->timestamp('updated_at')->nullable()->comment('更新日時');
             $table->timestamp('deleted_at')->nullable()->comment('削除日時');

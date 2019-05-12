@@ -16,14 +16,14 @@
   padding: 1.2em;
   min
 }
-.search-box {
-  width: 92%;
+.login-box {
+  width: 60%;
   margin: 0 auto;
   height: auto;
   border: 1px solid #003268;
   border-radius: 0.4em;
 }
-.search-title {
+.login-title {
   border-radius: 0.1em;
   background: #003268; 
   font-size: 2em;
@@ -32,7 +32,11 @@
   text-align: center;
 }
 
-ul li {
+.login-form ul {
+  padding-top: 2em;
+}
+
+.login-form ul li {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -90,8 +94,8 @@ ul li {
 @section('main')
 <div class="main-wrap">
   <div class="main-one-column">
-    <div class="search-box">
-      <h1 class="search-title">FLMログイン画面</h1>
+    <div class="login-box">
+      <h1 class="login-title">FLMログイン画面</h1>
       <form class="login-form" action="/login" method="post">
         {{ csrf_field() }}
         <ul>

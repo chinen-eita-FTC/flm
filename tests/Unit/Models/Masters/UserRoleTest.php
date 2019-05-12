@@ -1,23 +1,23 @@
 <?php
 declare(strict_types=1);
 
-namespace Tests\Unit\Models\Transactions;
+namespace Tests\Unit\Models\Masters;
 
 use Tests\Unit\Models\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\Transactions\BookOwner;
+use App\Models\Masters\UserRole;
 
 /**
- * 書籍所有者モデルのテスト
+ * ユーザー権限モデルのテスト
  *
- * @package Tests\Unit\Models\Transactions
+ * @package Tests\Unit\Models\Masters
  */
-class BookOwnerTest extends TestCase
+class UserRoleTest extends TestCase
 {
 
     /**
-     * @var BookOwner テスト対象クラス
+     * @var UserRole テスト対象クラス
      */
     private $testee;
 
@@ -27,11 +27,11 @@ class BookOwnerTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->testee = app()->make(BookOwner::class);
+        $this->testee = app()->make(UserRole::class);
     }
 
     /**
-     * 対象メソッド：getBookOwnerById
+     * 対象メソッド：getUserRoleById
      * @test
      */
     public function 存在する主キーを指定して1件のユーザ情報を取得できること()
@@ -40,23 +40,21 @@ class BookOwnerTest extends TestCase
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
         $this->seed(
-            BookOwner::class,
+            UserRole::class,
             $factoryKey,
             $seedingCount
         );
 
         // テスト対象メソッドを実行
         $id = 1;
-        $actuarl = $this->testee->getBookOwnerById($id);
+        $actuarl = $this->testee->getUserRoleById($id);
 
         // 検証
         $this->assertSame(1, $actuarl->get('id'));
-        $this->assertSame(1, $actuarl->get('m_book_id'));
-        $this->assertSame(1, $actuarl->get('m_user_id'));
     }
 
     /**
-     * 対象メソッド：getBookOwnerById
+     * 対象メソッド：getUserRoleById
      * @test
      */
     public function 存在しない主キーを指定してユーザ情報を取得できないこと()
@@ -65,16 +63,16 @@ class BookOwnerTest extends TestCase
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
         $this->seed(
-            BookOwner::class,
+            UserRole::class,
             $factoryKey,
             $seedingCount
         );
 
         // テスト対象メソッドを実行
         $id = 11;
-        $actuarl = $this->testee->getBookOwnerById($id);
+        $actuarl = $this->testee->getUserRoleById($id);
 
         // 検証
-        $this->assertEmpty($actuarl);
+        $this->assertEmpty(0, $actuarl);
     }
 }

@@ -22,7 +22,7 @@ class CreateMasterBookGenresTable extends Migration
     const TABLE_LOGICAL_NAME = '蔵書ジャンルマスタ';
 
     /**
-     * Run the migrations.
+     * テーブルを作成
      *
      * @return void
      */
@@ -39,7 +39,7 @@ class CreateMasterBookGenresTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * テーブルを削除
      *
      * @return void
      */

@@ -6,33 +6,31 @@ use Illuminate\Database\Schema\Blueprint;
 use App\Libraries\Migration;
 
 /**
- * 貸出情報トランザクションテーブルのマイグレーション
+ * ユーザー権限マスタテーブルのマイグレーション
  */
-class CreateTransactionBookRentalsTable extends Migration
+class CreateMasterUserRolesTable extends Migration
 {
 
     /**
      * @const テーブル物理名
      */
-    const TABLE_PHYSICAL_NAME = 't_book_rentals';
+     const TABLE_PHYSICAL_NAME = 'm_user_roles';
+
+     /**
+      * @const テーブル論理名
+      */
+     const TABLE_LOGICAL_NAME = 'ユーザー権限マスタ';
 
     /**
-     * @const テーブル論理名
-     */
-    const TABLE_LOGICAL_NAME = '貸出情報トランザクション';
-
-    /**
-     * テーブルを作成
+     * Run the migrations.
      *
      * @return void
      */
     public function up()
     {
         Schema::create(self::TABLE_PHYSICAL_NAME, function (Blueprint $table) {
-            $table->bigIncrements('id')->comment('蔵書貸出情報トランザクションID');
-            $table->bigInteger('m_book_id')->unsigned()->comment('蔵書マスタID');
-            $table->integer('m_user_id')->unsigned()->comment('ユーザーマスタID');
-            $table->bigInteger('m_book_rental_status_id')->unsigned()->comment('蔵書貸出情報ステータスマスタID');
+            $table->bigIncrements('id')->comment('ユーザー権限マスタID');
+            $table->string('name', 100)->comment('ユーザー権限名');
             $table->timestamp('created_at')->comment('登録日時');
             $table->timestamp('updated_at')->nullable()->comment('更新日時');
             $table->timestamp('deleted_at')->nullable()->comment('削除日時');
@@ -41,7 +39,7 @@ class CreateTransactionBookRentalsTable extends Migration
     }
 
     /**
-     * テーブルを削除
+     * Reverse the migrations.
      *
      * @return void
      */
