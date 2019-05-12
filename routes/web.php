@@ -1,6 +1,6 @@
 <?php
 
-Route::get('login', 'Logins\LoginController@index');
-Route::post('login', 'Logins\LoginController@login');
+Route::get('login', 'LoginController@index');
+Route::post('login', 'LoginController@login');
 
 Route::get('/', 'TopController@index');

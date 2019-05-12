@@ -32,16 +32,11 @@
   text-align: center;
 }
 
-.login-form-input {
-
+.login-form ul {
+  padding-top: 2em;
 }
 
-.login-input-box {
-  width: 100%;
-  padding: 1em;
-}
-
-ul li {
+.login-form ul li {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-wrap: wrap;
@@ -88,7 +83,9 @@ ul li {
 }
 
 .button-login:hover {
-  background: rgba(19, 186, 47, 0.1);
+  background: #003268;
+  color: #fff;
+  font-weight: 800;
   transition: .2s;
 }
 </style>

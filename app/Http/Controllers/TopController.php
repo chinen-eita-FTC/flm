@@ -21,6 +21,7 @@ class TopController extends Controller
      */
     public function __construct()
     {
+
     }
 
     /**

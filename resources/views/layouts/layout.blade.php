@@ -23,7 +23,7 @@
           <p class="headerUpper__right_loginMessage">
             <span class="font_bold">こんにちは、{{Auth::user()->first_name}} </span>様
           </p>
-          <a href="/logout" class="button__login">ログアウト</a>
+          <a href="/logout" class="button__logout">ログアウト</a>
           @else
           <a href="/login" class="button__login">ログイン</a>
           @endif

@@ -44,6 +44,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function isAdministrator()
+    {
+        if( isset($this->userRole) && $this->userRole->id === config('auth.guards.administrator.userRoleId')){
+            return true;
+        }
+        return false;
+    }
 
     /**
      * ユーザーと1:1で対応するユーザ権限情報を取得

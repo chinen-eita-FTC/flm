@@ -17,6 +17,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'administrator' => [
+            'driver' => 'session',
+            'provider' => 'users',
+            'userRoleId' => 2,
+        ],
     ],
 
     'providers' => [
