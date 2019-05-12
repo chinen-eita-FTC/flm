@@ -37,9 +37,14 @@ class BookOwnerTest extends TestCase
     public function 存在する主キーを指定して1件のユーザ情報を取得できること()
     {
         // テストデータを準備
-        $seederName = 'BookOwnerSeeder';
+        $factoryKey = 'デフォルト';
+        $seedingCount = 10;
         BookOwner::truncate();
-        $this->seed($seederName);
+        $this->seed(
+            BookOwner::class,
+            $factoryKey,
+            $seedingCount
+        );
 
         // テスト対象メソッドを実行
         $id = 1;
@@ -58,9 +63,14 @@ class BookOwnerTest extends TestCase
     public function 存在しない主キーを指定してユーザ情報を取得できないこと()
     {
         // テストデータを準備
-        $seederName = 'BookOwnerSeeder';
+        $factoryKey = 'デフォルト';
+        $seedingCount = 10;
         BookOwner::truncate();
-        $this->seed($seederName);
+        $this->seed(
+            BookOwner::class,
+            $factoryKey,
+            $seedingCount
+        );
 
         // テスト対象メソッドを実行
         $id = 11;

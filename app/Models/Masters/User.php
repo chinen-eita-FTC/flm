@@ -9,8 +9,7 @@ use App\Models\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-
-
+use App\Models\Masters\UserRole;
 
 /**
  * ユーザーモデル
@@ -47,6 +46,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * ユーザーと1:1で対応するユーザ権限情報を取得
+     */
+     public function userRole()
+     {
+         return $this->hasOne(UserRole::class, 'id', 'm_user_role_id');
+     }
+
+    /**
      * 主キーを指定してユーザー情報を検索
      *
      * @param int $id 主キー
@@ -54,7 +61,7 @@ class User extends Authenticatable
      */
     public function getUserById(int $id) : Collection
     {
-        $result = $this->find($id);
+        $result = $this->with('userRole')->where('id', $id)->first();
         if(is_null($result)){
             return collect([]);
         }
