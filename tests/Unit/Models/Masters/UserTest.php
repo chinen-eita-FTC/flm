@@ -40,13 +40,11 @@ class UserTest extends TestCase
         // テストデータを準備
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
-        User::truncate();
         $this->seed(
             User::class,
             $factoryKey,
             $seedingCount
         );
-
         // テスト対象メソッドを実行
         $id = 1;
         $actuarl = $this->testee->getUserById($id);
@@ -64,7 +62,6 @@ class UserTest extends TestCase
         // テストデータを準備
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
-        User::truncate();
         $this->seed(
             User::class,
             $factoryKey,
@@ -89,7 +86,6 @@ class UserTest extends TestCase
         // ユーザ情報マスタの登録
         $factoryKey = 'ユーザ権限マスタとのリレーションテスト';
         $seedingCount = 10;
-        User::truncate();
         $this->seed(
             User::class,
             $factoryKey,
@@ -100,7 +96,7 @@ class UserTest extends TestCase
         // ユーザ権限情報マスタの登録
         $factoryKey = 'デフォルト';
         $seedingCount = 3;
-        UserRole::truncate();
+        // UserRole::truncate();
         $this->seed(
             UserRole::class,
             $factoryKey,

@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use App\Libraries\Migration;
 
 /**
- * 蔵書マスタテーブルのマイグレーション
+ * ユーザーマスタテーブルのマイグレーション
  */
 class CreateMasterUsersTable extends Migration
 {

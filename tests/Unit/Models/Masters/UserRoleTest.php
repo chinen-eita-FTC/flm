@@ -39,7 +39,6 @@ class UserRoleTest extends TestCase
         // テストデータを準備
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
-        UserRole::truncate();
         $this->seed(
             UserRole::class,
             $factoryKey,
@@ -63,7 +62,6 @@ class UserRoleTest extends TestCase
         // テストデータを準備
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
-        UserRole::truncate();
         $this->seed(
             UserRole::class,
             $factoryKey,

@@ -31,7 +31,7 @@ class CreateTransactionBookRentalsTable extends Migration
         Schema::create(self::TABLE_PHYSICAL_NAME, function (Blueprint $table) {
             $table->bigIncrements('id')->comment('蔵書貸出情報トランザクションID');
             $table->bigInteger('m_book_id')->unsigned()->comment('蔵書マスタID');
-            $table->bigInteger('m_user_id')->unsigned()->comment('ユーザーマスタID');
+            $table->integer('m_user_id')->unsigned()->comment('ユーザーマスタID');
             $table->bigInteger('m_book_rental_status_id')->unsigned()->comment('蔵書貸出情報ステータスマスタID');
             $table->timestamp('created_at')->comment('登録日時');
             $table->timestamp('updated_at')->nullable()->comment('更新日時');

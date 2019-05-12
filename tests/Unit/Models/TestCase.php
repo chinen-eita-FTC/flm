@@ -6,6 +6,7 @@ namespace Tests\Unit\Models;
 use Tests\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Artisan;
 use Database\Seeds\Unit\Models\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * モデルテストの基底クラス
@@ -21,8 +22,18 @@ abstract class TestCase extends BaseTestCase
     public function setUp()
     {
         parent::setUp();
+        $this->reset();
+        Schema::disableForeignKeyConstraints();
     }
 
+    /**
+     * 後処理
+     */
+    public function tearDown()
+    {
+        Schema::enableForeignKeyConstraints();
+        parent::tearDown();
+    }
 
     /**
      * ダミーデータのシーディングを行う
@@ -38,5 +49,11 @@ abstract class TestCase extends BaseTestCase
         int $count
     ) {
         app()->make(Seeder::class)->run($modelClassPath, $factoryKey, $count);
+    }
+
+    public function reset()
+    {
+        Artisan::call('migrate:refresh');
+        sleep(2);
     }
 }

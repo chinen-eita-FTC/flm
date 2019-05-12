@@ -39,7 +39,6 @@ class BookOwnerTest extends TestCase
         // テストデータを準備
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
-        BookOwner::truncate();
         $this->seed(
             BookOwner::class,
             $factoryKey,
@@ -65,7 +64,6 @@ class BookOwnerTest extends TestCase
         // テストデータを準備
         $factoryKey = 'デフォルト';
         $seedingCount = 10;
-        BookOwner::truncate();
         $this->seed(
             BookOwner::class,
             $factoryKey,
