@@ -21,7 +21,7 @@ class TopController extends Controller
      */
     public function __construct()
     {
-
+        //NOP
     }
 
     /**
@@ -31,7 +31,7 @@ class TopController extends Controller
      * @return View
      */
     public function index(Request $request):View
-    {
-		return view('tops/index');
+    {   
+        return view('tops/index');
     }
 }
