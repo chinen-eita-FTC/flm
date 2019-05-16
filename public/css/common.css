@@ -16,12 +16,11 @@ html {
 }
 
 body {
-  background: #f3f7f4;
+  background: #fff;
   font-family: 'Arial', YuGothic, 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, 'ＭＳ ゴシック', sans-serif;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.5;
-  position: relative;
   height: 100%;
   margin: 0;
 }
@@ -65,7 +64,7 @@ em.small_text span {
 
 header {
   width: 100%;
-  background: #f3f7f4;
+  background: #fff;
 }
 
 .headerWrap {
@@ -200,8 +199,9 @@ footer {
   text-align: center;
   font-size: 0.8em;
   max-height: 72px;
+  overflow:hidden;
+  bottom:0;
   position: fixed;
-  bottom: 0;
 }
 
 .footer__wrap {
@@ -248,4 +248,25 @@ h3 {
 
 h4, h5, h6 {
   font-size: 1.6rem;
+}
+
+/*main contents*/
+.main-wrap{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.main-one-column {
+  width: 1000px;
+  min-width: 980px;
+  padding: 1.2em;
+}
+
+.main-one-column h1{
+  background: #f3f7fb;
+  padding: 0.5em 0.6em;
+  margin-bottom: 20px;
+  border-left: 10px solid #0764a7;
+  border-radius: 5px;
 }
