@@ -78,4 +78,27 @@ class Book extends Model
         }
 
     }
+<<<<<<< Updated upstream
 }
+=======
+
+    public function createBook(array $collection)
+    {
+        //outが規約でcollectionである
+        $response['status'] = false;
+        try{
+            //受け取った配列で、createメソッドを実行する
+            $insert = $this::create($collection);
+            //成功したら、書き換えて
+            $response['status'] = true ;
+            //true返す
+            return collect($response);
+        } catch (Exception $e) {
+            // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること
+            return collect($response);
+        }
+    }
+
+  
+}
+>>>>>>> Stashed changes
