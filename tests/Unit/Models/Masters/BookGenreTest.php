@@ -130,4 +130,5 @@ class BookGenreTest extends TestCase
         $record = $this->testee->find(2);
         $this->assertNotNull($record);
     }
+
 }
