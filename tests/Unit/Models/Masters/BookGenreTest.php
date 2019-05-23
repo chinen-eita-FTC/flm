@@ -56,4 +56,22 @@ class BookGenreTest extends TestCase
         $actual = $this->testee->find($id);
         $this->assertEmpty($actual);
     }
+
+    /**
+    * @test
+    */
+    public function 配列を受け取ってデータが登録できる事()
+    {
+        $array = (['name'=>'kurosaki']);
+        // データを登録する
+        $this->testee->createBookGenre($array);
+    
+        // 検証に使用する主キー
+        $id = 1;
+
+        // 返却値の検証
+        $actual = $this->testee->find($id);
+        $this->assertNotNull($actual);
+
+    }
 }
