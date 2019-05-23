@@ -69,7 +69,7 @@ class BookGenreTest extends TestCase
         // 検証に使用する主キー
         $id = 1;
 
-        // 返却値の検証
+        // 登録が完了しているかの検証
         $actual = $this->testee->find($id);
         $this->assertNotNull($actual);
 
@@ -82,7 +82,7 @@ class BookGenreTest extends TestCase
     {
         $array = (['name'=> 4 ]);
         // データを登録する
-        $this->testee->createBookGenre($array);
+        $this->testee->createBookGenres();
     
         // 検証に使用する主キー
         $id = 1;
@@ -105,8 +105,29 @@ class BookGenreTest extends TestCase
         $id = 1;
 
         // 返却値の検証
-        $actual = $this->testee->find($id);
+        $actual = $this->testee->getBookGenre($id);
+
+        $this->assertTrue($actual->get('status'));
+
         $this->assertNotNull($actual);
 
+    }
+
+    /**
+    * @test
+    */
+    public function 数値を渡してレコードを全権取得する事ができる()
+    {
+        // テストデータを登録する
+        $this->testee->create(['name'=>'kurosaki']);
+        $this->testee->create(['name'=>'kurosaki']);
+        
+        // 返却値の検証
+        $actual = $this->testee->getBookGenres();
+        $this->assertTrue($actual->get('status'));
+        
+        //レコード実体の検証
+        $record = $this->testee->find(2);
+        $this->assertNotNull($record);
     }
 }

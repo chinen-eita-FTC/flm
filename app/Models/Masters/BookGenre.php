@@ -76,4 +76,15 @@ class BookGenre extends Model
         }
     }
 
+    public function getBookGenres(){
+        $response['status'] = false;
+        try{
+            $target = $this->all();
+            $response['status'] = true;
+            return collect($response);
+        } catch (Exception $e) {
+            // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること 
+        }
+    }
+
 }
