@@ -92,4 +92,21 @@ class BookGenreTest extends TestCase
         $this->assertNull($actual);
 
     }
+
+    /**
+    * @test
+    */
+    public function 数値を渡してレコードを一件取得する事ができる()
+    {
+        // テストデータを登録する
+        $this->testee->create(['name'=>'kurosaki']);
+
+        // 検証に使用する主キー
+        $id = 1;
+
+        // 返却値の検証
+        $actual = $this->testee->find($id);
+        $this->assertNotNull($actual);
+
+    }
 }
