@@ -74,4 +74,22 @@ class BookGenreTest extends TestCase
         $this->assertNotNull($actual);
 
     }
+
+    /**
+    * @test
+    */
+    public function nameに数値型が指定された場合は登録されない事()
+    {
+        $array = (['name'=> 4 ]);
+        // データを登録する
+        $this->testee->createBookGenre($array);
+    
+        // 検証に使用する主キー
+        $id = 1;
+
+        // 返却値の検証
+        $actual = $this->testee->find($id);
+        $this->assertNull($actual);
+
+    }
 }
