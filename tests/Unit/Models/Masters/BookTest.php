@@ -59,29 +59,17 @@ class BookTest extends TestCase
      * @test
      */
     public function 各カラム型の一致している任意の配列を利用してレコードを１件登録できること(){
-        //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array('m_book_level_id' => 1,
         'm_book_genre_id' => 2,
         'name' => 'ftc',
         'isbn_code' => '1919810',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
-        //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
-
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
-        //$actualの中がtrueである事を確認する
-
         $this->assertTrue($actual->get('status'));
 
         //きちんと登録できているか、取得する
@@ -92,7 +80,7 @@ class BookTest extends TestCase
      /**
      * @test
      */
-    public function 自動入力のidへ数字を入れて渡し、idが上書き登録されること(){
+    public function 自動入力のidへ数字を入れて渡し、idが更新登録されること(){
         //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
@@ -104,28 +92,19 @@ class BookTest extends TestCase
         'name' => 'ftc',
         'isbn_code' => '19890220',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
         //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
-
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
-        //$actualの中がtrueである事を確認する
 
         $this->assertTrue($actual->get('status'));
 
         //AUTO_INCREMENTできちんと上書きして登録できているか、取得して確認する
         $actual = $this->testee->find(1)->isbn_code;
+
         //配列で渡したisbn_codeと、登録されたisbn_codeでの一致を確認
         $isbn = '19890220';
-        $boole = $actual === $isbn;
-        //きちんと上書きで登録されていれば、trueになるはず
-        $this->assertTrue($boole);
+        $this->assertSame($isbn, $actual);
 
     }
 
@@ -133,10 +112,8 @@ class BookTest extends TestCase
      * @test
      */
     public function 自動入力のidへ文字列を入れて渡し、idが上書き登録されること(){
-        //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array('id' => 'ftc',
         'm_book_level_id' => 1,
@@ -144,59 +121,38 @@ class BookTest extends TestCase
         'name' => 'ftc',
         'isbn_code' => '198902201',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
         //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
-
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
-        //$actualの中がtrueである事を確認する
-
         $this->assertTrue($actual->get('status'));
 
         //AUTO_INCREMENTできちんと上書きして登録できているか、取得して確認する
         $actual = $this->testee->find(1)->isbn_code;
+
         //配列で渡したisbn_codeと、登録されたisbn_codeでの一致を確認
         $isbn = '198902201';
-        $boole = $actual === $isbn;
-        //きちんと上書きで登録されていれば、trueになるはず
-        $this->assertTrue($boole);
+        $actual = $this->testee->find(1)->isbn_code;
 
     }
 
      /**
      * @test
      */
-    public function 蔵書レベルマスタIDを入れずに渡して、登録できない事(){
-        //今回は登録だからテストコードの挿入はなし
+    public function 蔵書レベルマスタidを入れずに渡して、登録できない事(){
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array(
-        //'m_book_level_id' => 1,
         'm_book_genre_id' => 2,
         'name' => 'ftc',
         'isbn_code' => '198902201',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
-        //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
 
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
         //$actualの中がfalseである事を確認する
-
         $this->assertFalse($actual->get('status'));
     }
 
@@ -205,10 +161,8 @@ class BookTest extends TestCase
      * @test
      */
     public function 蔵書レベルマスタIDに文字列を入力して、登録できない事(){
-        //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array(
         'm_book_level_id' => 'ftc',
@@ -216,19 +170,12 @@ class BookTest extends TestCase
         'name' => 'ftc',
         'isbn_code' => '198902201',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
         //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
 
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
         //$actualの中がfalseである事を確認する
-
         $this->assertFalse($actual->get('status'));
     }
 
@@ -237,30 +184,19 @@ class BookTest extends TestCase
      * @test
      */
     public function 蔵書ジャンルマスタIDを入れずに渡して、登録できない事(){
-        //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array(
         'm_book_level_id' => 1,
-        //'m_book_genre_id' => 2,
         'name' => 'ftc',
         'isbn_code' => '198902201',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
-        //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
 
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
         //$actualの中がfalseである事を確認する
-
         $this->assertFalse($actual->get('status'));
     }
 
@@ -269,10 +205,8 @@ class BookTest extends TestCase
      * @test
      */
     public function 蔵書ジャンルマスタIDに文字列を入力して、登録できない事(){
-        //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array(
         'm_book_level_id' => 1,
@@ -280,19 +214,11 @@ class BookTest extends TestCase
         'name' => 'ftc',
         'isbn_code' => '198902201',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
-        //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
 
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
         //$actualの中がfalseである事を確認する
-
         $this->assertFalse($actual->get('status'));
     }
 
@@ -301,30 +227,19 @@ class BookTest extends TestCase
      * @test
      */
     public function 蔵書名を入れずに渡して、登録できない事(){
-        //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array(
         'm_book_level_id' => 1,
         'm_book_genre_id' => 2,
-        //'name' => 'ftc',
         'isbn_code' => '198902201',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
-        //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
 
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
         //$actualの中がfalseである事を確認する
-
         $this->assertFalse($actual->get('status'));
     }
 
@@ -332,30 +247,19 @@ class BookTest extends TestCase
      * @test
      */
     public function ISBNコードを入れずに渡して、登録できる事(){
-        //今回は登録だからテストコードの挿入はなし
 
         //検証に使用するコレクションを定義する
-        //date型をMysqlへ渡すときの記述をチェック
         $date = '2019-01-01';
         $collection = array(
         'm_book_level_id' => 1,
         'm_book_genre_id' => 2,
         'name' => 'ftc',
-        //'isbn_code' => '198902201',
         'published_at' => $date
-        //登録時の処理のため、以下のフィールドは入力不要
-        //'created_at',
-        //'updated_at',
-        //'deleted_at',
         );
 
-        //Bookインスタンスを作成して、createBookを実行する
-        //結果は$actualに入れておく
         $actual = $this->testee->createBook($collection);
 
-        //create()でモデルを作った場合、返却値は新しく生成したオブジェクト
         //$actualの中がtrueである事を確認する
-
         $this->assertTrue($actual->get('status'));
     }
 }
