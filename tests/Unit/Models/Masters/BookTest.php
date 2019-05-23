@@ -277,4 +277,16 @@ class BookTest extends TestCase
         $this->assertTrue($actual->get('status'));
     }
 
+
+    /**
+    * @test
+    */
+    public function 全書籍情報がきちんと取得できているかを確認する(){
+
+        //idを渡してgetBookを実行
+        $actual = $this->testee->getAllBook();
+
+        //$actualの中がtrueである事を確認する
+        $this->assertTrue($actual->get('status'));
+    }
 }
