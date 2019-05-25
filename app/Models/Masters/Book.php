@@ -78,14 +78,34 @@ class Book extends Model
     /**
      * 蔵書マスタデータの1件新規登録
      *
-     * @param array 蔵書マスタデータを登録
+     * @param array $input 蔵書マスタデータを登録
      * @return Collection 登録した蔵書マスタデータをラップしたコレクションオブジェクト
      */
     public function createBook(array $input)
     {
         try {
-            $createdBook = $this->create($input);
-            return collect($createdBook->toArray());
+            $created = $this->create($input);
+            return collect($created->toArray());
+        } catch (Exception $e) {
+            // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること
+            return collect([]);
+        }
+    }
+
+    /**
+     * 主キーを指定して任意の蔵書マスタを1件更新できること
+     *
+     * @param array $input
+     * @return Collection 登録した蔵書マスタデータをラップしたコレクションオブジェクト
+     */
+    public function updateBook(array $input)
+    {
+        $response['status'] = false;
+        try {
+            $target = $this->find($input['id']);
+            $updated = $target->fill($input)->update();
+            $response['status'] = $updated;
+            return collect($response);
         } catch (Exception $e) {
             // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること
             return collect([]);
