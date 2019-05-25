@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace App\Models\Masters;
 
 use App\Models\Model;
+use Exception;
 use Illuminate\Support\Collection;
 use Log;
-use Exception;
 
 /**
  * 蔵書モデル
@@ -30,6 +30,7 @@ class Book extends Model
      */
     protected $guarded = [
         'id',
+        'created_at',
     ];
 
     /**
@@ -42,40 +43,52 @@ class Book extends Model
     ];
 
     /**
+     * Carbonインスタンスに変換するカラム群
+     *
+     * @var array
+     */
+
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at',
+        'published_at',
+    ];
+
+    /**
      * 主キーを指定して蔵書情報を削除
-     * 
+     *
      * @param int $id 主キー
      * @return Collection
      */
-    public function deleteBook(int $id):Collection
+    public function deleteBook(int $id): Collection
     {
         $response['status'] = false;
-        try{
+        try {
             $target = $this->find($id);
             $deleted = $target->delete();
             $response['status'] = $deleted;
             return collect($response);
         } catch (Exception $e) {
             // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること 
-	}
+        }
 
     }
 
-        public function createBook(array $collection)
+    /**
+     * 蔵書マスタデータの1件新規登録
+     *
+     * @param array 蔵書マスタデータを登録
+     * @return Collection 登録した蔵書マスタデータをラップしたコレクションオブジェクト
+     */
+    public function createBook(array $input)
     {
-        //outが規約でcollectionである
-        $response['status'] = false;
-        try{
-            //受け取った配列で、createメソッドを実行する
-            $insert = $this::create($collection);
-            //成功したら、書き換えて
-            $response['status'] = true ;
-            //true返す
-            return collect($response);
+        try {
+            $createdBook = $this->create($input);
+            return collect($createdBook->toArray());
         } catch (Exception $e) {
             // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること
-            return collect($response);
+            return collect([]);
         }
-
     }
 }
