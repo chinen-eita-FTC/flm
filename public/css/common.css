@@ -281,6 +281,14 @@ h4, h5, h6 {
   display: none;
 }
 
+.padding-default{
+  padding: 1em;
+}
+
+.margin-top-default {
+  margin-top: 1em;
+}
+
 /*button contents*/
 
 .button {
@@ -349,4 +357,17 @@ h4, h5, h6 {
   color: #fff;
   font-weight: 800;
   transition: .2s;
+}
+
+/*radius options*/
+.radius-default {
+  border: 1px solid #003268;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/*flex-box options*/
+.flex-wrap {
+  flex-wrap: wrap;
 }

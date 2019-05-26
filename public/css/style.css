@@ -66,6 +66,11 @@
   justify-content: flex-end;
 }
 
+.button-ajust-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .button-login {
   display: inline-block;
   padding: 8px 20px;
@@ -83,4 +88,48 @@
   color: #fff;
   font-weight: 800;
   transition: .2s;
+}
+
+/*デフォルトのテーブル*/
+.table-form{
+  padding: 0.5em;
+}
+.table-form table {
+  width: 100%;
+  margin: 20px 0;
+}
+.table-form tr {
+  border-bottom: 2px solid #f8f5f2;
+}
+.table-form th{
+  background: #d9d9d9;
+  text-align: left;
+  padding: 10px;
+  font-weight: initial;
+
+}
+.table-form td {
+  padding-left: 10px;
+  background: #fff;
+  text-align: left;
+  font-weight: initial;
+}
+.table-form th {
+  width: 26%;
+  border-right: 2px solid #f8f5f2;
+}
+.table-form td {
+  width: 70%;
+}
+
+.table-form input[type=text]  {
+  border: 1px solid;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #333;
+  font-size: 13px;
+  padding: 10px;
+  height: 40px;
+  width: 70%;
 }
