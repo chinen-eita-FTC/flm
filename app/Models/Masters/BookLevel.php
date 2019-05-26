@@ -9,11 +9,11 @@ use Log;
 use Exception;
 
 /**
- * 蔵書ジャンルモデル
+ * 蔵書レベルモデル
  *
  * @package App\Models\Masters
  */
-class BookGenre extends Model
+class BookLevel extends Model
 {
 
     /**
@@ -21,7 +21,7 @@ class BookGenre extends Model
      *
      * @var string
      */
-    protected $table = 'm_book_genres';
+    protected $table = 'm_book_levels';
 
     /**
      * 意図しないデータの更新を防ぎたいカラム群
@@ -30,6 +30,7 @@ class BookGenre extends Model
      */
     protected $guarded = [
         'id',
+        'created_at',
     ];
 
     /**

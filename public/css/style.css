@@ -1,0 +1,135 @@
+/*角丸リスト風テーブル*/
+.list-table-box {
+  width: 92%;
+  margin: 0 auto;
+  height: auto;
+}
+
+.list-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.list-table li{
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0 0 3px;
+}
+
+.list-table ul.style_none {
+  margin: 10px 10px 10px 10px;
+  border: 0px;
+}
+
+.list-table ul {
+  margin: 10px 10px 10px 10px;
+  padding: 5px;
+  border-collapse: separate;
+  border: 1px solid #003268;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/*ログインボタン*/
+.login-form-title {
+  -webkit-flex-basis: 28%;
+  flex-basis: 28%;
+  padding: 0.4em;
+  width: 50%;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+.login-form-input {
+  -webkit-flex-basis: 50%;
+  flex-basis: 50%;
+  -webkit-flex-grow: 0.8;
+  flex-grow: 0.8;
+  padding: 0.4em;
+  width: 42%;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+.button-ajust-center {
+  display: flex;
+  justify-content: center;
+}
+
+.button-ajust-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-ajust-left {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button-login {
+  display: inline-block;
+  padding: 8px 20px;
+  min-width: 160px;
+  background: #fff;
+  border-radius: 6px;
+  border: 2px solid #003268;
+  font-size: 1.6rem;
+  color: #003268;
+  text-decoration: none;
+}
+
+.button-login:hover {
+  background: #003268;
+  color: #fff;
+  font-weight: 800;
+  transition: .2s;
+}
+
+/*デフォルトのテーブル*/
+.table-form{
+  padding: 0.5em;
+}
+.table-form table {
+  width: 100%;
+  margin: 20px 0;
+}
+.table-form tr {
+  border-bottom: 2px solid #f8f5f2;
+}
+.table-form th{
+  background: #d9d9d9;
+  text-align: left;
+  padding: 10px;
+  font-weight: initial;
+
+}
+.table-form td {
+  padding-left: 10px;
+  background: #fff;
+  text-align: left;
+  font-weight: initial;
+}
+.table-form th {
+  width: 26%;
+  border-right: 2px solid #f8f5f2;
+}
+.table-form td {
+  width: 70%;
+}
+
+.table-form input[type=text]  {
+  border: 1px solid;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #333;
+  font-size: 13px;
+  padding: 10px;
+  height: 40px;
+  width: 70%;
+}
