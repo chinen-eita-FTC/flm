@@ -11,7 +11,7 @@
           <td>{{$name}}</td>
         </tr>
         <tr>
-          <th>発行日</th>
+          <th>出版年月日</th>
           <td>{{$publishedAt}}</td>
         </tr>
         <tr>

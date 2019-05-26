@@ -11,7 +11,7 @@
             <td><input type="text" name="name" value="{{$name}}"></td>
           </tr>
           <tr>
-            <th>発行日</th>
+            <th>出版年月日</th>
             <td><input type="text" name="published_at" value="{{$publishedAt}}"></td>
           </tr>
           <tr><th>ジャンル</th>
