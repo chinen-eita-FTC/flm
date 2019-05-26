@@ -46,8 +46,10 @@ class LibraryService
      */
     public function list(array $input): Collection
     {
-        $input['m_book_genre_id'] = $this->convertToInteger($input['m_book_genre_id']);
         $input = collect($input);
+        if($input->has('m_book_genre_id')){
+            $input['m_book_genre_id'] = $this->convertToInteger($input->get('m_book_genre_id'));
+        }
         $response['books'] = $this->book->getBooks($input);
         $response['bookGenres'] = $this->bookGenre->getBookGenres($input);
         return collect($response);

@@ -47,7 +47,7 @@
         @foreach ($books as $book)
         <ul>
           <li class="one-forty-width"><a href="#">{{$book->name}}</a></li>
-          <li class="fifth-width"><a href="#">ジャンル名</a></li>
+          <li class="fifth-width"><a href="#">{{$book->bookGenre->name}}</a></li>
           <li class="one-fifteenth-width">{{$book->published_at}}</li>
           <li class="tenth-width"><button class="button button-danger full-width" onclick="showBookModal('./delete', {{$book}})">削除</button></li>
           <li class="tenth-width"><button class="button button-default full-width" onclick="showBookModal('./update', {{$book}})">編集</button></li>

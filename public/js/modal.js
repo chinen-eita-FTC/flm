@@ -6,7 +6,9 @@ var showBookModal = function showBookModal(url, book){
         'id':book.id,
         'name':book.name,
         'published_at':book.published_at,
-        'isbn_code':book.isbn_code
+        'isbn_code':book.isbn_code,
+        'book_genre_name':book.book_genre.name,
+        'book_genre_id':book.book_genre.id,
     }
   })
   .done( (data) => {

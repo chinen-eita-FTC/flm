@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <th>ジャンル</th>
-          <td>{{$isbnCode}}</td>
+          <td>{{$bookGenreName}}</td>
         </tr>
         <tr>
           <th>ISBNコード</th>

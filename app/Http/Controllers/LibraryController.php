@@ -52,7 +52,9 @@ class LibraryController extends Controller
         $name = $request->name;
         $publishedAt = $request->published_at;
         $isbnCode = $request->isbn_code;
-        return view('libraries.delete', compact('id', 'name', 'publishedAt', 'isbnCode'));
+        $bookGenreName = $request->book_genre_name;
+        $bookGenreId = $request->book_genre_id;
+        return view('libraries.delete', compact('id', 'name', 'publishedAt', 'isbnCode', 'bookGenreName', 'bookGenreId'));
     }
 
     /**
