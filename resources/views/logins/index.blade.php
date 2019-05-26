@@ -86,7 +86,7 @@
             <label class ="login-form-title" for="password">パスワード</label>
             <input class ="login-form-input" type="password" id="password" name="password" value="">
           </li>
-          <li class="button-ajust">
+          <li class="button-ajust-center">
             <input class ="button-login" type="submit" value="ログイン" />
           </li>
         </ul>

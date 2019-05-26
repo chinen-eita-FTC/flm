@@ -25,36 +25,7 @@
   border-left: 10px solid #0764a7;
   border-radius: 5px;	
 }
-.table-form{
-  padding: 0.5em;
-}
-.table-form table {
-  width: 100%;
-  margin: 20px 0;
-}
-.table-form tr {
-  border-bottom: 2px solid #f8f5f2;
-}
-.table-form th{
-  background: #d9d9d9;
-  text-align: left;
-  padding: 10px;
-  font-weight: initial;
 
-}
-.table-form td {
-  padding-left: 10px;
-  background: #fff;
-  text-align: left;
-  font-weight: initial;
-}
-.table-form th {
-  width: 26%;
-  border-right: 2px solid #f8f5f2;
-}
-.table-form td {
-  width: 70%;
-}
 .button_box {
   display: flex;
   flex-direction: row;
