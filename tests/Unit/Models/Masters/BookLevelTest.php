@@ -6,10 +6,10 @@ namespace Tests\Unit\Models\Masters;
 use Tests\Unit\Models\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\Masters\Book;
+use App\Models\Masters\BookLevel;
 
 /**
- * 蔵書モデルのテスト
+ * 蔵書レベルモデルのテスト
  *
  * @package Tests\Unit\Models\Masters
  */
@@ -28,13 +28,5 @@ class BookLvelTest extends TestCase
     {
         parent::setUp();
         $this->testee = app()->make(BookLevel::class);
-    }
-
-    /**
-     * @test
-     */
-
-
-
     }
 }

@@ -9,7 +9,7 @@ use Log;
 use Exception;
 
 /**
- * 蔵書モデル
+ * 蔵書レベルモデル
  *
  * @package App\Models\Masters
  */
@@ -30,6 +30,7 @@ class BookLevel extends Model
      */
     protected $guarded = [
         'id',
+        'created_at',
     ];
 
     /**
@@ -40,10 +41,4 @@ class BookLevel extends Model
     protected $hidden = [
 
     ];
-
-    /**
-     * 主キーを指定して蔵書情報を削除
-     * 
-     * @param int $id 主キー
-     * @return Collection
-     */
+}
