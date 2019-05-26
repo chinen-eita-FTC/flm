@@ -1,8 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Services;
 
 use App\Models\Masters\Book;
+use App\Models\Masters\BookGenre;
 use Illuminate\Support\Collection;
 
 /**
@@ -13,25 +15,42 @@ use Illuminate\Support\Collection;
 class LibraryService
 {
 
+    /**
+     * @var Book 蔵書モデル
+     */
     private $book;
+
+    /**
+     * @var BookGenre 蔵書ジャンルモデル
+     */
+    private $bookGenre;
 
     /**
      * 初期処理
      *
      * @return void
      */
-    public function __construct(Book $book)
-    {
+    public function __construct(
+        Book $book,
+        BookGenre $bookGenre
+    ) {
         $this->book = $book;
+        $this->bookGenre = $bookGenre;
     }
 
     /**
+     * 任意の値より蔵書情報を取得
      *
+     * @param array $input
+     * @return Collection
      */
-    public function list()
+    public function list(array $input): Collection
     {
-        $books = $this->book->all();
-        return $books;
+        $input['m_book_genre_id'] = $this->convertToInteger($input['m_book_genre_id']);
+        $input = collect($input);
+        $response['books'] = $this->book->getBooks($input);
+        $response['bookGenres'] = $this->bookGenre->getBookGenres($input);
+        return collect($response);
     }
 
     /**
