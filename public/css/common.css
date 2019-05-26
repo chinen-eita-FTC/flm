@@ -38,22 +38,22 @@ button {
   background: #fff;
 }
 
-p.bold_title {
+p.bold-title {
   font-size: 1.3em;
   font-weight: bold;
 }
 
-h3.section_title {
+h3.section-title {
   font-size: 2em;
   font-weight: bold;
 }
 
-em.small_text {
+em.small-text {
   font-size: 1em;
   text-decoration: none;
   font-style: normal;
 }
-em.small_text span {
+em.small-text span {
   font-size: 0.8em;
   text-decoration: none;
   font-style: normal;

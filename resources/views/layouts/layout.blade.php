@@ -17,14 +17,10 @@
   <header>
     <div class="header-wrap">
       <div class="header-upper">
-        <div class="headerUpper__left">
-          <h1>FLM</h1>
-        </div>
+        <h1>FLM</h1>
         <div class="header-upper-right">
           @if(Auth::check())
-          <p class="headerUpper__right_loginMessage">
-            <span class="font_bold">こんにちは、{{Auth::user()->first_name}} </span>様
-          </p>
+          <p><span>こんにちは、{{Auth::user()->first_name}} </span>様</p>
           <a href="/logout" class="button-header-logout">ログアウト</a>
           @else
           <a href="/login" class="button-header-login">ログイン</a>
@@ -34,7 +30,7 @@
       <div class="header-lower">
         <nav class="global-menu">
           <ul>
-            <li><a href="#">トップ</a></li>
+            <li><a href="/">トップ</a></li>
             <li><a href="/library/list">蔵書管理</a></li>
             <li><a href="#">申請管理</a></li>
             <li><a href="#">ユーザー情報管理</a></li>
