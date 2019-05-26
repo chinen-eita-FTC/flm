@@ -13,6 +13,9 @@ use Illuminate\Support\Collection;
 class LibraryService
 {
 
+    /**
+     * @var Book 蔵書モデル
+     */
     private $book;
 
     /**
@@ -26,7 +29,9 @@ class LibraryService
     }
 
     /**
+     * 任意の値より蔵書情報を取得
      *
+     * @return Collection
      */
     public function list()
     {
