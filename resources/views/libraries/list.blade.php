@@ -3,7 +3,7 @@
 @section('title', '蔵書管理画面')
 
 @section('script')
-<script src="{{ asset('js/delete.js') }}"></script>
+<script src="{{ asset('js/modal.js') }}"></script>
 @endsection
 
 @section('css')
