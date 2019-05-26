@@ -7,6 +7,8 @@ use App\Models\Model;
 use Exception;
 use Illuminate\Support\Collection;
 use Log;
+use App\Models\Masters\BookGenre;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * 蔵書モデル
@@ -55,6 +57,39 @@ class Book extends Model
     ];
 
     /**
+     * 蔵書ジャンルモデルと1:1でリレーション
+     *
+     * @return HasOne
+     */
+    public function bookGenre(): HasOne
+    {
+        return $this->hasOne(BookGenre::class, 'id', 'm_book_genre_id');
+    }
+
+    /**
+     * 任意の値に応じて複数件の蔵書モデルを取得
+     *
+     * @param Collection $input 主キー
+     * @return Collection
+     */
+    public function getBooks(Collection $input): Collection
+    {
+        try {
+            // Eagger Loading の実行
+            $query = $this->with('bookGenre');
+            if($input->has('name')){
+                $query->where('name', 'LIKE', "%".$input->get('name')."%");
+            }
+            if($input->has('m_book_genre_id') && $input->get('m_book_genre_id') !== 0){
+                $query->where('m_book_genre_id', $input->get('m_book_genre_id'));
+            }
+            return $query->get();
+        } catch (Exception $e) {
+            // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること 
+        }
+    }
+
+    /**
      * 主キーを指定して蔵書情報を削除
      *
      * @param int $id 主キー
@@ -71,7 +106,6 @@ class Book extends Model
         } catch (Exception $e) {
             // TODO [v1.0|機能追加] 例外処理の送出方法の決定後に削除時の例外処理の追加すること 
         }
-
     }
 
     /**

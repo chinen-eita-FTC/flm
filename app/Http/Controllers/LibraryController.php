@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
@@ -34,8 +35,10 @@ class LibraryController extends Controller
      */
     public function list(Request $request): View
     {
-        $books = $this->service->list();
-        return view('libraries.list', compact('books'));
+        $response = $this->service->list($request->input());
+        $books = $response->get('books');
+        $bookGenres = $response->get('bookGenres');
+        return view('libraries.list', compact('books', 'bookGenres'));
     }
 
     /**

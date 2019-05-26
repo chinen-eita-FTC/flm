@@ -22,16 +22,10 @@
               <tr><th>蔵書名</th><td><input type="text" name="name" value=""></td></tr>
               <tr><th>ジャンル</th>
                 <td><ul class="button-ajust-left flex-wrap">
-                  <li><label><input type="radio" name="book_genre" checked="">指定なし</label></li>
-                  <li><label><input type="radio" name="book_genre">Java</label></li>
-                  <li><label><input type="radio" name="book_genre">PHP</label></li>
-                  <li><label><input type="radio" name="book_genre">Python</label></li>
-                  <li><label><input type="radio" name="book_genre">Java</label></li>
-                  <li><label><input type="radio" name="book_genre">PHP</label></li>
-                  <li><label><input type="radio" name="book_genre">Python</label></li>
-                  <li><label><input type="radio" name="book_genre">Java</label></li>
-                  <li><label><input type="radio" name="book_genre">PHP</label></li>
-                  <li><label><input type="radio" name="book_genre">Python</label></li>
+                  <li><label><input type="radio" name="m_book_genre_id" value="0" checked="">指定なし</label></li>
+                  @foreach($bookGenres as $bookGenre)
+                  <li><label><input type="radio" name="m_book_genre_id" value="{{$bookGenre->id}}">{{$bookGenre->name}}</label></li>
+                  @endforeach
                 </ul></td>
               </tr>
           </table>
