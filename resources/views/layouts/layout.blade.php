@@ -15,24 +15,24 @@
 <body>
   <!-- ヘッダー開始 -->
   <header>
-    <div class="headerWrap">
-      <div class="headerUpper">
+    <div class="header-wrap">
+      <div class="header-upper">
         <div class="headerUpper__left">
           <h1>FLM</h1>
         </div>
-        <div class="headerUpper__right">
+        <div class="header-upper-right">
           @if(Auth::check())
           <p class="headerUpper__right_loginMessage">
             <span class="font_bold">こんにちは、{{Auth::user()->first_name}} </span>様
           </p>
-          <a href="/logout" class="button__logout">ログアウト</a>
+          <a href="/logout" class="button-header-logout">ログアウト</a>
           @else
-          <a href="/login" class="button__login">ログイン</a>
+          <a href="/login" class="button-header-login">ログイン</a>
           @endif
         </div>
       </div>
-      <div class="headerlower">
-        <nav class="globalMenu">
+      <div class="header-lower">
+        <nav class="global-menu">
           <ul>
             <li><a href="#">トップ</a></li>
             <li><a href="/library/list">蔵書管理</a></li>
@@ -55,7 +55,7 @@
 
   <!-- フッター開始 -->
   <footer>
-    <div class="footer__wrap">
+    <div class="footer-wrap">
       <ul>
         <li><a href="#">利用規約</a></li>
         <li><a href="#">ヘルプ</a></li>

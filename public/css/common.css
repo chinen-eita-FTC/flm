@@ -95,13 +95,13 @@ header {
   background: #fff;
 }
 
-.headerWrap {
+.header-wrap {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 
-.headerUpper {
+.header-upper {
   width: 1000px;
   display: flex;
   justify-content: space-between;
@@ -109,30 +109,13 @@ header {
   margin: 10px auto;
 }
 
-.headerUpper__right {
+.header-upper-right {
   font-size: 1.3rem;
   display: flex;
   align-items: center;
 }
 
-.button__registration {
-  display: inline-block;
-  padding: 10px 20px;
-  _margin: 0 10px;
-  text-decoration: none;
-  color: #fff;
-  border-radius: 6px;
-  text-align: center;
-  background: rgba(19, 186, 47, 1);
-  font-size: 1.6rem;
-}
-
-.button__registration:hover {
-  background: rgba(19, 186, 47, 0.8);
-  transition: .2s;
-}
-
-.button__login {
+.button-header-login {
   display: inline-block;
   padding: 8px 20px;
   margin: 0 10px;
@@ -144,14 +127,14 @@ header {
   text-decoration: none;
 }
 
-.button__login:hover {
+.button-header-login:hover {
   background: #003268;
   color: #fff;
   font-weight: 800;
   transition: .2s;
 }
 
-.button__logout {
+.button-header-logout {
   display: inline-block;
   padding: 8px 20px;
   margin: 0 10px;
@@ -163,41 +146,36 @@ header {
   text-decoration: none;
 }
 
-.button__logout:hover {
+.button-header-logout:hover {
   background: rgba(242, 5, 36, 0.1);
-  transition: .2s;
-}
-
-.button__help:hover {
-  opacity: 0.8;
   transition: .2s;
 }
 
 /* グローバルメニュー */
 
-.headerlower {
+.header-lower {
   background: #003268;
   max-height: 72px;
 }
 
-nav.globalMenu {
+nav.global-menu {
   width: 1000px;
   margin: 0 auto;
 }
 
-nav.globalMenu ul {
+nav.global-menu ul {
   display: flex;
   border: 1px solid #378ecc;
 }
 
-nav.globalMenu ul li {
+nav.global-menu ul li {
   display: flex;
   flex-grow: 1;
   text-align: center;
   padding: 0.4em;
 }
 
-nav.globalMenu ul li a {
+nav.global-menu ul li a {
   flex-grow: 1;
   text-align: center;
   justify-content: center;
@@ -206,11 +184,11 @@ nav.globalMenu ul li a {
   text-decoration: none;
 }
 
-nav.globalMenu ul li:not(:last-child) a {
+nav.global-menu ul li:not(:last-child) a {
   border-right: 1px solid #378ecc;
 }
 
-nav.globalMenu a:hover {
+nav.global-menu a:hover {
   background: #003268;
   color: #fff;
   font-weight: 800;
@@ -232,7 +210,7 @@ footer {
   position: fixed;
 }
 
-.footer__wrap {
+.footer-wrap {
   width: 1000px;
   margin: 0 auto;
 }
