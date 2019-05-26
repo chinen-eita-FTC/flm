@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <th>ジャンル</th>
-          <td>000-0000-0000</td>
+          <td>{{$isbnCode}}</td>
         </tr>
         <tr>
           <th>ISBNコード</th>
@@ -26,7 +26,7 @@
     <input type="hidden" name="id" value="{{$id}}">
     <div class="button_box">
       <input type="submit" value="削除" class="button button-danger quarter-width">
-      <input type="button" value="キャンセル" onclick="cancelDelete()" class="button button-cancel quarter-width">
+      <input type="button" value="キャンセル" onclick="cancelModal()" class="button button-cancel quarter-width">
     </div>
   </form>
 </div>

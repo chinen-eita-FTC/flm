@@ -12,4 +12,6 @@ Route::prefix('library')->group(function () {
   Route::get('list', 'LibraryController@list');
   Route::get('delete', 'LibraryController@delete');
   Route::post('delete', 'LibraryController@deleted');
+  Route::get('update', 'LibraryController@update');
+  Route::post('update', 'LibraryController@updated');
 });

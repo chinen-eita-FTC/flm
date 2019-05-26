@@ -43,7 +43,7 @@
 
   <!-- メイン開始 -->
   <main>
-    <div class="modal-background hidden" id="modal-overlay" onclick="cancelDelete()"></div>
+    <div class="modal-background hidden" id="modal-overlay" onclick="cancelModal()"></div>
     <div class="modal-wrap hidden" id="modal-box"></div>
   @yield('main')
   </main>

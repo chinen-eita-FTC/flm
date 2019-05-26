@@ -25,7 +25,7 @@ var showBookModal = function showBookModal(url, book){
   });
 };
 
-var cancelDelete = function cancelDelete(){
+var cancelModal = function cancelModal(){
   $("#modal-overlay").addClass("hidden");
   $("#modal-box").html("").addClass("hidden");
 }

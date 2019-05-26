@@ -62,4 +62,29 @@ class LibraryController extends Controller
         $response = $this->service->deleted($request->input('id'));
         return redirect()->action('LibraryController@list');
     }
+
+    /**
+     * Method:GET
+     * URL:/library/update
+     * @return View 蔵書更新確認画面のモーダルウィンドウ
+     */
+    public function update(Request $request): View
+    {
+        $id = $request->id;
+        $name = $request->name;
+        $publishedAt = $request->published_at;
+        $isbnCode = $request->isbn_code;
+        return view('libraries.update', compact('id', 'name', 'publishedAt', 'isbnCode'));
+    }
+
+    /**
+     * Method:GET
+     * URL:/library/update
+     * @return RedirectResponse 蔵書更新確認画面のモーダルウィンドウ
+     */
+    public function updated(Request $request): RedirectResponse
+    {
+        $response = $this->service->updated($request->input());
+        return redirect()->action('LibraryController@list');
+    }
 }
