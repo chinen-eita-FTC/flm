@@ -1,0 +1,80 @@
+/*角丸リスト風テーブル*/
+.list-table-box {
+  width: 92%;
+  margin: 0 auto;
+  height: auto;
+}
+
+.list-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: separate;
+}
+
+.list-table li{
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 0 0 3px;
+}
+
+.list-table ul.style_none {
+  margin: 10px 10px 10px 10px;
+  border: 0px;
+}
+
+.list-table ul {
+  margin: 10px 10px 10px 10px;
+  padding: 5px;
+  border-collapse: separate;
+  border: 1px solid #003268;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/*ログインボタン*/
+.login-form-title {
+  -webkit-flex-basis: 28%;
+  flex-basis: 28%;
+  padding: 0.4em;
+  width: 50%;
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+.login-form-input {
+  -webkit-flex-basis: 50%;
+  flex-basis: 50%;
+  -webkit-flex-grow: 0.8;
+  flex-grow: 0.8;
+  padding: 0.4em;
+  width: 42%;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+.button-ajust {
+  justify-content: center;
+}
+
+.button-login {
+  display: inline-block;
+  padding: 8px 20px;
+  min-width: 160px;
+  background: #fff;
+  border-radius: 6px;
+  border: 2px solid #003268;
+  font-size: 1.6rem;
+  color: #003268;
+  text-decoration: none;
+}
+
+.button-login:hover {
+  background: #003268;
+  color: #fff;
+  font-weight: 800;
+  transition: .2s;
+}

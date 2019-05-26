@@ -6,6 +6,8 @@
   <title>@yield('title')</title>
   <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
   <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
   @yield('css')
 </head>
 
@@ -33,7 +35,7 @@
         <nav class="globalMenu">
           <ul>
             <li><a href="#">トップ</a></li>
-            <li><a href="#">蔵書管理</a></li>
+            <li><a href="/library/list">蔵書管理</a></li>
             <li><a href="#">申請管理</a></li>
             <li><a href="#">ユーザー情報管理</a></li>
           </ul>
@@ -45,6 +47,8 @@
 
   <!-- メイン開始 -->
   <main>
+    <div class="modal-background hidden" id="modal-overlay" onclick="cancelDelete()"></div>
+    <div class="modal-wrap hidden" id="modal-box"></div>
   @yield('main')
   </main>
   <!-- メイン終了 -->
