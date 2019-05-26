@@ -56,8 +56,14 @@
   border-radius: 5px;
 }
 
-.button-ajust {
+.button-ajust-center {
+  display: flex;
   justify-content: center;
+}
+
+.button-ajust-right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .button-login {

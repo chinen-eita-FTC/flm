@@ -14,13 +14,14 @@
 <div class="main-wrap">
   <div class="main-one-column">
     <h1>蔵書管理画面</h1>
-    <button class="button">aaaa</button>
     <div class="list-table-box">
+      <div class="button-ajust-right"><button class="button button-success">蔵書の新規登録</button></div>
       <div class="list-table">
         <ul class="style_none">
           <li class="one-forty-width">書籍名</li>
           <li class="fifth-width">ジャンル</li>
           <li class="one-fifteenth-width">送信日時</li>
+          <li class="tenth-width"></li>
           <li class="tenth-width"></li>
         </ul>
         @foreach ($books as $book)
