@@ -51,8 +51,9 @@ class BookRentalStatus extends Model
      */
     public function deleteBook(int $id){
         try{
-            $data = $this->find($id);
-           # $data->deleted_at->Carbon::now();
+			$date = today();
+			$data = $this->find($id)->update(['deleted_at'=>$date]);
+		    #$delete = $data->update(["deleted_at"=>time()]); 
 
             $response = array("status"=>true);
             return collect($response);
