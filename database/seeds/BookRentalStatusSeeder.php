@@ -13,15 +13,6 @@ class BookRentalStatusSeeder extends Seeder
      */
     public function run()
     {
-        //
-		BookRentalStatus::create([
-		'id' => 1,
-		'name'=>'test'
-		]);
-		
-		BookRentalStatus::create([
-		'id' => 2,
-		'name'=>'test2'
-		]);
+        factory(BookRentalStatus::class,50)->create();
     }
 }

@@ -7,6 +7,7 @@ use Tests\Unit\Models\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Masters\BookRentalStatus;
 use Illuminate\Support\Facades\Artisan;
+use Log;
 
 /**
  * 蔵書貸出情報ステータスモデルのテスト
@@ -34,7 +35,7 @@ class BookRentalStatusTest extends TestCase
     /**
      * @test deleteBookRentalStatus
      */
-    public function 任意の主キーを使用してレコードが1件削除されること()
+    public function 「任意の主キー」を使用してレコードが1件削除する()
     {
         $actual = $this->testee->deleteBook(1);
         $this->assertTrue($actual['status']);
@@ -46,11 +47,11 @@ class BookRentalStatusTest extends TestCase
     /**
     * @test createBookRentalstatus
     */
-    public function 任意の配列を用いてデータを登録できる事(){
+    public function 「任意の配列」を用いてデータを登録する(){
         $array = array('name'=>'flm');
         $actual = $this->testee->createBook($array);
         $this->assertTrue($actual['status']);
-		$id = 3;
+		$id = 51;
         $data = $this->testee->find($id);
         $this->assertSame($data->name,'flm');
     }
@@ -58,22 +59,22 @@ class BookRentalStatusTest extends TestCase
     /**
      * @test updateBookRentalStatus
      */
-    public function 任意の配列を用いてデータを更新できる(){
+    public function 「任意の配列」を用いてデータを更新する(){
 		$id = 3;
         $array = array('id'=>$id,'name'=>'PHP');
         $actual = $this->testee->updateBook($array);
         $this->assertTrue($actual['status']);
         $name = $this->testee->find($id)->name;
+        log::info($name);
         $this->assertSame($name,'PHP');
     } 
 
     /**
 	* @test
 	*/
-	public function ユーザー名を利用した貸出情報ステータスの取得に関するテスト(){
-		$ary = array();
-		$ary['name'] = 1;
-		$actual = $this->testee->getBookRentalStatus($ary);
+	public function 「ユーザー名」を利用して貸出情報ステータスを取得する(){
+		$array['name'] = 1;
+		$actual = $this->testee->getBookRentalStatus($array);
 		$this->assertTrue($actual['status']);
 		$this->assertNotNull($actual['data']);
 	}
@@ -81,9 +82,9 @@ class BookRentalStatusTest extends TestCase
 	/**
 	 * @test 
 	 */
-	public function 蔵書貸出情報ステータスidを利用した貸出情報ステータスの取得に関するテスト(){
-		$ary = array('id'=>1);
-		$actual = $this->testee->getBookRentalStatus($ary);
+	public function 「蔵書貸出情報ステータスid」を利用して貸出情報ステータスを取得する(){
+		$array = array('id'=>1);
+		$actual = $this->testee->getBookRentalStatus($array);
 		$this->assertTrue($actual['status']);
 		$this->assertNotNull($actual['data']);
 	}
@@ -91,9 +92,9 @@ class BookRentalStatusTest extends TestCase
 	/**
 	 * @test 
 	 */
-	public function 貸出情報全件取得に関するテスト(){
-		$ary = array();
-		$actual = $this->testee->getBookRentalStatus($ary);
+	public function 貸出情報全件を取得する(){
+		$array = array();
+		$actual = $this->testee->getBookRentalStatus($array);
 		$this->assertTrue($actual['status']);
 		$this->assertNotNull($actual['data']);
     }

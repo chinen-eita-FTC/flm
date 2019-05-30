@@ -10,8 +10,8 @@ use Exception;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * 蔵書貸し出し情報ステータスマスタ
- *
+ * 蔵書貸し出し情
+ * 
  * @package App\Models\Masters
  */
 class BookRentalStatus extends Model
@@ -54,7 +54,17 @@ class BookRentalStatus extends Model
      */
     public function deleteBook(int $id){
         try{
-			$data = $this->find($id)->delete();
+            $data = $this->find($id); //->delete();
+            if(isset($data)){
+                $data->delete();
+                $response = array("status"=>true);
+                return collect($response);
+            }
+            else{
+                throw new Exception('this record was deleted');
+                $response = array("status"=>false);
+                return collect($response);
+            }
 			$response = array("status"=>true);
             return collect($response);
         }
@@ -71,7 +81,7 @@ class BookRentalStatus extends Model
      */
     public function createBook(array $array){
         try{
-            $this -> fill($array) -> save();
+            $this->fill($array)->save();
             $response = array("status"=>true);
             return collect($response);
         }
@@ -88,8 +98,9 @@ class BookRentalStatus extends Model
      */
     public function updateBook(array $array){
         try{
-            $data = $this::find($array['id']);
-            $this->fill($array)->save();
+            $data = $this->find($array['id']);
+            $data->name = 'PHP';
+            $data->save();
             $response = array("status"=>true);
             return collect($response);
         }
@@ -105,21 +116,20 @@ class BookRentalStatus extends Model
 	* @return collection
 	*/
 	public function getBookRentalStatus(array $array){
-        $data = $array;
-        if(isset($data['name'])){
-            $actual = $this->where('name',$data['name'])->get();
-            $response = array("status"=>true,"data"=>$actual);
-            return collect($response);
+        $query = $this;
+        if(isset($array['name'])){
+            $query->where('name',$array['name']);
         }
-        elseif(isset($data['id'])){
-            $actual = $this->where('id',$data['id'])->get();
-            $response = array("status"=>true,"data"=>$actual);
-            return collect($response);
+        elseif(isset($array['id'])){
+            $query->where('id',$array['id']);
         }
         else{
-            $actual = $this::all();
-            $response = array("data"=>$actual,"status"=>true);
+            $data = $query::all();
+            $response = array("status"=>true,"data"=>$data);
             return collect($response);
         }
+        $data = $query->get();
+        $response = array("status"=>true,"data"=>$data);
+        return collect($response);
     }
 }
